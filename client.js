@@ -15,7 +15,14 @@ const connect = function () {
     // code that does something when the
     console.log('you ded cuz you idled');
   });
-  
+  conn.on("connect", () => {
+    // code that does something when the
+    console.log('connection is successful');
+  });
+  conn.on('connect',() => {
+    conn.write("Name: _aaa")
+  });
+
   return conn;
 };
 
