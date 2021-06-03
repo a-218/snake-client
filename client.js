@@ -25,7 +25,7 @@ const connect = function () {
   });
 
   conn.on('connect',() => {
-    conn.write("Move: up")
+    conn.write("Say: _x")
   });
 
   return conn;

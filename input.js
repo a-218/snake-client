@@ -1,7 +1,10 @@
 const { builtinModules } = require("module");
 const net = require("net");
 
-const setupInput = function () {
+let connection;
+
+const setupInput = (conn) => {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -10,12 +13,25 @@ const setupInput = function () {
   return stdin;
 };
 
-const handleUserInput = function () {
+const handleUserInput = function (conn) {
   // your code here
+  connection = conn;
   process.stdin.on('data', (key) => {
     process.stdout.write('.');
     if (key === '\u0003') {
       process.exit();
+    }
+    if(key === 'w'){
+      console.log('Move: up');
+    }
+    if(key === 's'){
+      console.log('Move: down');
+    }
+    if(key === 'a'){
+      console.log('Move: left');
+    }
+    if(key === 'd'){
+      console.log('Move: right');
     }
   });
 };
