@@ -19,8 +19,13 @@ const connect = function () {
     // code that does something when the
     console.log('connection is successful');
   });
+
   conn.on('connect',() => {
     conn.write("Name: _aaa")
+  });
+
+  conn.on('connect',() => {
+    conn.write("Move: up")
   });
 
   return conn;
